@@ -72,8 +72,14 @@ body:before {
   height: 100%;
 }
 .btn-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
   margin-top: 20px;
-  padding: 10px;
+  padding: 5px;
 }
 form {
   margin-bottom: 30px;
