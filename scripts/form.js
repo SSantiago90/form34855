@@ -1,26 +1,27 @@
 console.log("%c---loaded script form.js🎉---", "background: rgb(20,80,150)");
 
-function addButtonToForm(text, typeButton, nodeId) 
-{
-  // obtenemos un elemento Padre del DOM
-  const nodeButtons = document.getElementById(nodeId);
-  console.log(nodeButtons);
 
-  // Creamos y agregamos un botton al elemento
-  const newButton = document.createElement("button"); // <button>
-  newButton.textContent = text; // <button>Registrarme</button>  
+function createButton(text, typeButton) {
+  const newButton = document.createElement("button");
+  newButton.textContent = text;
   newButton.setAttribute("type", typeButton);
+  return newButton
+}
 
-  // Agregar el botom al DOM / UI / interfaz de usuario
-  nodeButtons.appendChild(newButton);
+function addElementToNode(element, nodeid) { 
+  const node = document.getElementById(nodeid);
+  node.appendChild(element);
+  return node
 }
 
 
 
+addElementToNode(
+  createButton("Registrar", "submit"), // <button type="submit">Registrar</button>
+  "buttons-register"
+);
 
-// R -> Reutilizar
-addButtonToForm("Registrarse", "submit", "buttons-register")
-addButtonToForm("Reiniciar", "reset", "buttons-register")
-addButtonToForm("Volver atrás", "button", "buttons-register")
-
-addButtonToForm("Ingresar", "submit", "loginForm")
+addElementToNode(
+  createButton("Cancelar", "reset"), // <button type="reset">Cancelar</button>
+  "buttons-register"
+)
