@@ -1,20 +1,24 @@
-console.log("%cloaded script form.js👌", "background: blue");
+console.log("%c---loaded script form.js🎉---", "background: rgb(20,80,150)");
 
-//1. Agregar un Event Listener al formulario "#loginForm" del index.html
-let formulario = document.getElementById("loginForm");
-console.log(formulario);
+function createButton(text, typeButton, parentNodeId){
+  // obtenemos un elemento del DOM
+  const registerFormButtons = document.getElementById(parentNodeId) 
+  //console.log(registerForm);
+  
+  // Crear nuevos nodos dentro de ese elemento
+  const boton = document.createElement('button') // <button></button>
+  boton.textContent = text;
+  boton.setAttribute("type", typeButton);
+  registerFormButtons.append(boton)
+}
 
-formulario.addEventListener("submit", (event) => {
-  //2. Obtener el evento de "submit" en una función (Event handler) y evitar que la página se "refresque"
-  event.preventDefault();
+// "hardcodeado"
+// ! Reutilizable -> Functiones y parámetro
+// * Elementos Dinámicos
 
-  let email = console.log(event.target.elements[0].value);
-  let password = console.log(event.target.elements[1].value);
-});
+createButton("Registrarme", "submit", "buttons-register");
+createButton("Reiniciar", "reset", "buttons-register");
+createButton("Volver atrás", "button", "buttons-register");
 
-//3. Obtener los valores (values) de los inputs Usuario y Contraseña
-//4. Si el usuario es igual a "coderhouse" y la contraseña es igual a 1234,
-//  darle visibilidad a la <section> oculta del index.html
-
-// 5. Similar a la consigna anterior, obtener el "value" del input del formulario
-// 6. Guardar ese valor en una variable y convertirlo en un array (tip: array.split())
+createButton("Login", "submit", "buttons-login" )
+createButton("Cancelar", "reset", "buttons-login" )
